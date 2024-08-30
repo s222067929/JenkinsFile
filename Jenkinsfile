@@ -14,6 +14,13 @@ pipeline {
                 echo 'Unit tests performed by JUnit which takes minor functional parts of the software to be tested individually to ensure the smooth running of the unit. Unit testing is a program testing method used to ascertain individual software components functionality, accuracy, and efficiency.'
                 echo 'Integration tests performed by Protractor which tests the interactions between various components of an application and ensure that they work seamlessly together'
             }
+            post{
+                success{
+                    mail to: "solanomigs@gmail.com",
+                    subject: "Tests status email",
+                    body: "Tests were successful!"
+                }
+            }            
         }
         stage('Code Analysis') {
             steps {
@@ -24,6 +31,13 @@ pipeline {
             steps {
                 echo "Use Synk to identify and fix known vulnerabilities in dependencies as well as containers"
             }
+            post{
+                success{
+                    mail to: "solanomigs@gmail.com",
+                    subject: "Security scan status email",
+                    body: "$PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS:"
+                }
+            }            
         }
         stage ('Deploy to Staging') {
             steps {
