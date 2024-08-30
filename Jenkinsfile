@@ -31,7 +31,7 @@ pipeline {
         }
         stage ('Deploy to Production'){
             steps {
-                echo "Deploy code to AWS"
+                echo "Deploy code to AWS!"
             }
             post{
                 success{
