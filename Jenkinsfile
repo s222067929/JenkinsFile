@@ -29,6 +29,11 @@ pipeline {
                 sleep(time:10,unit:"SECONDS")
             }
         }
+        stage ('Polling SCM Test stage') {
+            steps {
+                sleep(time:10,unit:"SECONDS")
+            }
+        }        
         stage ('Deploy to Production'){
             steps {
                 echo "Deploy code to AWS!"
