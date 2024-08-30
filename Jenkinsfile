@@ -16,10 +16,12 @@ pipeline {
             }
             post{
                 success{
-                    mail to: "solanomigs@gmail.com",
-                    subject: "Tests status email",
-                    body: "Job Tests were successful!"
-                    emailext attachLog: true, body: '', subject: ''
+                    emailext (
+                        to: 'solanomigs@gmail.com',
+                        subject: 'Security scan status email.',
+                        body: 'Job security scan success!',
+                        attachmentsPattern: '**/build.log'
+                    )
                 }
             }            
         }
