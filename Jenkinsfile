@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo "fetch the source code from the directory path: ${DIRECTORY_PATH}"
+                echo "fetch the source code from the directory path: "
                 echo 'compile this code and generate any necessary artifacts'
             }
         }
@@ -21,7 +21,7 @@ pipeline {
             }
         stage ('Deploy') {
             steps {
-                echo "deploy the application to a testing environment: ${TESTING_ENVIRONMENT}"
+                echo "deploy the application to a testing environment: "
             }
         }
         stage ('Approval') {
@@ -31,7 +31,14 @@ pipeline {
         }
         stage ('Deploy to Production'){
             steps {
-                echo "Deploy code to ${PRODUCTION_ENVIRONMENT}"
+                echo "Deploy code to "
+            }
+            post{
+                success{
+                    mail to: "solanomigs@gmail.com",
+                    subject: "Build status email",
+                    body: "Build was successful!"
+                }
             }
         }
     }
