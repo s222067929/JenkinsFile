@@ -20,7 +20,7 @@ pipeline {
                         to: 'solanomigs@gmail.com',
                         subject: 'Tests status email!',
                         body: 'Testing success!',
-                        attachmentsPattern: '**/build.log'
+                        attachLog: true
                     )
                     emailext attachLog: true, body: '', subject: ''
                 }
