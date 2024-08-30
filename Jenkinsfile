@@ -18,7 +18,7 @@ pipeline {
                 success{
                     mail to: "solanomigs@gmail.com",
                     subject: "Tests status email",
-                    body: "Job '${JOB_NAME}' (${BUILD_NUMBER}) - (${BUILD_STATUS}) Tests were successful!"
+                    body: "Job Tests were successful!"
                 }
             }            
         }
@@ -35,7 +35,7 @@ pipeline {
                 success{
                     mail to: "solanomigs@gmail.com",
                     subject: "Security scan status email.",
-                    body: "Job '${JOB_NAME}' (${BUILD_NUMBER}) - (${BUILD_STATUS}) security scan success!"
+                    body: "Job security scan success!"
                 }
             }            
         }
