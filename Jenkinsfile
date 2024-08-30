@@ -5,38 +5,40 @@ pipeline {
         stage('Build') {
             steps {
                 echo "fetch the source code from the directory path: "
-                echo 'compile this code and generate any necessary artifacts'
+                echo "compile this code and generate any necessary artifacts using Apache Maven, a comprehensive build management tool"
+                echo "Maven will take the code and required dependencies to build the product"
             }
         }
-        stage('Test') {
+        stage('Unit and Integration Tests') {
             steps {
-                echo 'unit tests'
-                echo 'integration tests'
+                echo 'Unit tests performed by JUnit which takes minor functional parts of the software to be tested individually to ensure the smooth running of the unit. Unit testing is a program testing method used to ascertain individual software components functionality, accuracy, and efficiency.'
+                echo 'Integration tests performed by Protractor which tests the interactions between various components of an application and ensure that they work seamlessly together'
             }
         }
-        stage('Code') {
+        stage('Code Analysis') {
             steps {
-                echo 'check the quality of the code'
+                echo 'Undergo Code Analysis with Akido Security which analzes source code for potential coding errors without running it. Used to identify and fix issues like bugs or security risks.'
             }
             }
-        stage ('Deploy') {
+        stage ('Security Scan') {
             steps {
-                echo "deploy the application to a testing environment: "
+                echo "Use Synk to identify and fix known vulnerabilities in dependencies as well as containers"
             }
         }
-        stage ('Approval') {
+        stage ('Deploy to Staging') {
             steps {
+                echo "Deployment is handled by jenkins in this case to an AWS EC2 STAGING instance which is a cloud computing server which will handle CPU, memory, storage, and networking capacity for the product."
                 sleep(time:10,unit:"SECONDS")
             }
         }
-        stage ('Polling SCM Test stage') {
+        stage ('Inegration tests on Staging') {
             steps {
-                sleep(time:10,unit:"SECONDS")
+                echo "Again, use JUnit to undergo integration tests which validates the interactions between the product's components and the staging environment to ensure everything works perfectly."
             }
-        }        
+        }
         stage ('Deploy to Production'){
             steps {
-                echo "Deploy code to AWS!"
+                echo "Deploy code to AWS EC2 production instance, our final destination for the product in which an Amazon Web Server EC2 instance will be used to host and operate the product making use of its CPU, memory, storage and networking capacity."
             }
             post{
                 success{
