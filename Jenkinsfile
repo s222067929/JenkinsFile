@@ -22,7 +22,6 @@ pipeline {
                         body: 'Testing success!',
                         attachLog: true
                     )
-                    emailext attachLog: true, body: '', subject: ''
                 }
             }            
         }
@@ -41,7 +40,7 @@ pipeline {
                         to: 'solanomigs@gmail.com',
                         subject: 'Security scan status email!',
                         body: 'Job security scan success!',
-                        attachmentsPattern: '**/build.log'
+                        attachLog: true
                     )
                 }
             }            
@@ -66,6 +65,7 @@ pipeline {
                     mail to: "solanomigs@gmail.com",
                     subject: "Build status email",
                     body: "Build was successful!"
+                    attachLog: true
                 }
             }
         }
