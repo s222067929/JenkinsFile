@@ -65,7 +65,6 @@ pipeline {
                     mail to: "solanomigs@gmail.com",
                     subject: "Build status email",
                     body: "Build was successful!"
-                    attachLog: true
                 }
             }
         }
