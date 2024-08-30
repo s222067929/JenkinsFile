@@ -18,7 +18,7 @@ pipeline {
                 success{
                     emailext (
                         to: 'solanomigs@gmail.com',
-                        subject: 'Security scan status email.',
+                        subject: 'Security scan status email!',
                         body: 'Job security scan success!',
                         attachmentsPattern: '**/build.log'
                     )
@@ -38,7 +38,7 @@ pipeline {
                 success{
                     emailext (
                         to: 'solanomigs@gmail.com',
-                        subject: 'Security scan status email.',
+                        subject: 'Security scan status email!',
                         body: 'Job security scan success!',
                         attachmentsPattern: '**/build.log'
                     )
